@@ -66,11 +66,21 @@ export class MemStorage implements IStorage {
     // Add an admin user by default
     this.createUser({
       username: "admin",
-      password: "admin_password",
+      password: "password123",
       firstName: "Admin",
       lastName: "User",
       email: "admin@eventhub.com",
       role: "admin"
+    });
+    
+    // Add an organizer user
+    this.createUser({
+      username: "organizer",
+      password: "password123",
+      firstName: "Event",
+      lastName: "Organizer",
+      email: "organizer@eventhub.com",
+      role: "organizer"
     });
 
     // Add some initial events
@@ -108,6 +118,91 @@ export class MemStorage implements IStorage {
       imageUrl: "https://images.unsplash.com/photo-1475721027785-f74ec9c2d4cb",
       organizerId: 1,
       capacity: 180
+    });
+    
+    // Add 7 more events to reach 10 events total
+    this.createEvent({
+      title: "Data Science Conference 2023",
+      description: "The premier conference for data scientists and analysts featuring workshops on the latest technologies and methodologies.",
+      category: "conference",
+      location: "Boston, MA",
+      startDate: new Date("2023-10-15"),
+      endDate: new Date("2023-10-17"),
+      imageUrl: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31",
+      organizerId: 2,
+      capacity: 500
+    });
+
+    this.createEvent({
+      title: "Mobile App Development Bootcamp",
+      description: "Intensive 3-day bootcamp for mobile developers to learn cutting-edge techniques for iOS and Android development.",
+      category: "workshop",
+      location: "Austin, TX",
+      startDate: new Date("2023-07-20"),
+      endDate: new Date("2023-07-22"),
+      imageUrl: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e",
+      organizerId: 2,
+      capacity: 60
+    });
+
+    this.createEvent({
+      title: "Blockchain Innovation Summit",
+      description: "Connect with blockchain enthusiasts and experts to explore the future of decentralized technologies.",
+      category: "conference",
+      location: "Miami, FL",
+      startDate: new Date("2023-11-10"),
+      endDate: new Date("2023-11-12"),
+      imageUrl: "https://images.unsplash.com/photo-1639152201720-5e536d254d81",
+      organizerId: 1,
+      capacity: 350
+    });
+
+    this.createEvent({
+      title: "Women in Tech Networking Mixer",
+      description: "An evening of networking and mentorship opportunities for women in technology fields.",
+      category: "networking",
+      location: "Seattle, WA",
+      startDate: new Date("2023-08-28"),
+      endDate: new Date("2023-08-28"),
+      imageUrl: "https://images.unsplash.com/photo-1528901166007-3784c7dd3653",
+      organizerId: 2,
+      capacity: 120
+    });
+
+    this.createEvent({
+      title: "UI/UX Design Workshop",
+      description: "Learn the principles of creating intuitive, user-friendly interfaces with hands-on design exercises.",
+      category: "workshop",
+      location: "Portland, OR",
+      startDate: new Date("2023-09-15"),
+      endDate: new Date("2023-09-16"),
+      imageUrl: "https://images.unsplash.com/photo-1541462608143-67571c6738dd",
+      organizerId: 2,
+      capacity: 75
+    });
+
+    this.createEvent({
+      title: "Cybersecurity Seminar",
+      description: "Essential knowledge and best practices for protecting your organization against modern cyber threats.",
+      category: "seminar",
+      location: "Washington, DC",
+      startDate: new Date("2023-08-10"),
+      endDate: new Date("2023-08-10"),
+      imageUrl: "https://images.unsplash.com/photo-1563013544-824ae1b704d3",
+      organizerId: 1,
+      capacity: 200
+    });
+
+    this.createEvent({
+      title: "Global Innovation Hackathon",
+      description: "Teams from around the world compete to solve pressing global challenges through technology.",
+      category: "hackathon",
+      location: "Virtual Event",
+      startDate: new Date("2023-11-25"),
+      endDate: new Date("2023-11-26"),
+      imageUrl: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4",
+      organizerId: 1,
+      capacity: 1000
     });
   }
 

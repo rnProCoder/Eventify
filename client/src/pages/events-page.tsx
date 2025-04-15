@@ -34,6 +34,7 @@ export default function EventsPage() {
   const [date, setDate] = useState(searchParams.get("date") || "all");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [currentPage, setCurrentPage] = useState(1);
+  const [sortBy, setSortBy] = useState("newest");
   const eventsPerPage = 6;
 
   // Prepare API query parameters
@@ -47,14 +48,28 @@ export default function EventsPage() {
     queryKey: ["/api/events", queryParams],
   });
 
+  // Sort events
+  let sortedEvents = events ? [...events] : [];
+  
+  if (sortBy === "newest") {
+    sortedEvents.sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime());
+  } else if (sortBy === "oldest") {
+    sortedEvents.sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
+  } else if (sortBy === "alphabetical") {
+    sortedEvents.sort((a, b) => a.title.localeCompare(b.title));
+  } else if (sortBy === "popularity") {
+    // For now, sort by capacity as a proxy for popularity
+    sortedEvents.sort((a, b) => b.capacity - a.capacity);
+  }
+  
   // Pagination logic
-  const totalEvents = events?.length || 0;
+  const totalEvents = sortedEvents.length;
   const totalPages = Math.ceil(totalEvents / eventsPerPage);
   
-  const paginatedEvents = events?.slice(
+  const paginatedEvents = sortedEvents.slice(
     (currentPage - 1) * eventsPerPage,
     currentPage * eventsPerPage
-  ) || [];
+  );
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -151,7 +166,7 @@ export default function EventsPage() {
             </div>
             <div className="flex space-x-4">
               <span className="text-gray-700">Sort by:</span>
-              <Select defaultValue="newest">
+              <Select value={sortBy} onValueChange={setSortBy}>
                 <SelectTrigger className="bg-transparent border-none text-gray-700 w-36">
                   <SelectValue />
                 </SelectTrigger>
