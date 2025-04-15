@@ -30,15 +30,21 @@ export default function EventsPage() {
   const searchParams = new URLSearchParams(location.split('?')[1] || '');
   
   const [searchTerm, setSearchTerm] = useState(searchParams.get("search") || "");
-  const [category, setCategory] = useState(searchParams.get("category") || "");
-  const [date, setDate] = useState(searchParams.get("date") || "");
+  const [category, setCategory] = useState(searchParams.get("category") || "all");
+  const [date, setDate] = useState(searchParams.get("date") || "all");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [currentPage, setCurrentPage] = useState(1);
   const eventsPerPage = 6;
 
+  // Prepare API query parameters
+  const queryParams: Record<string, string> = {};
+  if (searchTerm) queryParams.search = searchTerm;
+  if (category && category !== "all") queryParams.category = category;
+  if (date && date !== "all") queryParams.date = date;
+  
   // Fetch events with filters
   const { data: events, isLoading } = useQuery<Event[]>({
-    queryKey: ["/api/events", { category, search: searchTerm, date }],
+    queryKey: ["/api/events", queryParams],
   });
 
   // Pagination logic
@@ -55,8 +61,8 @@ export default function EventsPage() {
     // Update the URL with the search parameters
     const params = new URLSearchParams();
     if (searchTerm) params.set("search", searchTerm);
-    if (category) params.set("category", category);
-    if (date) params.set("date", date);
+    if (category && category !== "all") params.set("category", category);
+    if (date && date !== "all") params.set("date", date);
     
     window.history.pushState({}, "", `/events?${params.toString()}`);
     setCurrentPage(1);
@@ -101,7 +107,7 @@ export default function EventsPage() {
                     <SelectValue placeholder="All Categories" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">All Categories</SelectItem>
+                    <SelectItem value="all">All Categories</SelectItem>
                     <SelectItem value="hackathon">Hackathons</SelectItem>
                     <SelectItem value="workshop">Workshops</SelectItem>
                     <SelectItem value="seminar">Seminars</SelectItem>
@@ -118,7 +124,7 @@ export default function EventsPage() {
                     <SelectValue placeholder="Any Date" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">Any Date</SelectItem>
+                    <SelectItem value="all">Any Date</SelectItem>
                     <SelectItem value="today">Today</SelectItem>
                     <SelectItem value="tomorrow">Tomorrow</SelectItem>
                     <SelectItem value="this-week">This Week</SelectItem>
