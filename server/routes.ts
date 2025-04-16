@@ -67,14 +67,27 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(403).json({ message: "Only organizers can create events" });
       }
 
-      const eventData = insertEventSchema.parse({
-        ...req.body,
-        organizerId: userData.id
-      });
+      // Parse the raw data first to handle date conversions
+      console.log("Creating event with data:", req.body);
       
-      const event = await storage.createEvent(eventData);
+      // Make sure dates are properly handled
+      const eventData = {
+        ...req.body,
+        // Ensure dates are properly converted to Date objects
+        startDate: new Date(req.body.startDate),
+        endDate: new Date(req.body.endDate),
+        organizerId: userData.id
+      };
+      
+      console.log("Parsed event data:", eventData);
+      
+      // Now validate with Zod schema
+      const validatedData = insertEventSchema.parse(eventData);
+      
+      const event = await storage.createEvent(validatedData);
       res.status(201).json(event);
     } catch (error) {
+      console.error("Event creation error:", error);
       if (error instanceof ZodError) {
         const validationError = fromZodError(error);
         return res.status(400).json({ message: validationError.message });

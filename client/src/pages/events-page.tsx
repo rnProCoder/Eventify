@@ -43,8 +43,10 @@ export default function EventsPage() {
   if (category && category !== "all") queryParams.category = category;
   if (date && date !== "all") queryParams.date = date;
   
+  console.log("Query params:", queryParams);
+  
   // Fetch events with filters
-  const { data: events, isLoading } = useQuery<Event[]>({
+  const { data: events, isLoading, refetch } = useQuery<Event[]>({
     queryKey: ["/api/events", queryParams],
   });
 
@@ -79,8 +81,17 @@ export default function EventsPage() {
     if (category && category !== "all") params.set("category", category);
     if (date && date !== "all") params.set("date", date);
     
+    console.log("Searching with params:", {
+      search: searchTerm,
+      category: category,
+      date: date
+    });
+    
     window.history.pushState({}, "", `/events?${params.toString()}`);
     setCurrentPage(1);
+    
+    // Force refetch with current filter params
+    refetch();
   };
 
   return (

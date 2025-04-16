@@ -39,17 +39,17 @@ import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
-// Extended schema with validations
-const createEventSchema = insertEventSchema.extend({
-  // Ensure dates are properly parsed and validated
-  startDate: z.date({
-    required_error: "Start date is required",
-    invalid_type_error: "Start date must be a valid date",
-  }),
-  endDate: z.date({
-    required_error: "End date is required",
-    invalid_type_error: "End date must be a valid date",
-  }),
+// Override schema to handle date as string inputs for the API
+const createEventSchema = z.object({
+  title: z.string().min(3, { message: "Title must be at least 3 characters" }),
+  description: z.string().min(10, { message: "Description must be at least 10 characters" }),
+  category: z.enum(["hackathon", "seminar", "workshop", "conference", "networking"]),
+  location: z.string().min(2, { message: "Location is required" }),
+  capacity: z.number().int().positive({ message: "Capacity must be a positive number" }),
+  startDate: z.date(),
+  endDate: z.date(),
+  imageUrl: z.string().optional().nullable(),
+  organizerId: z.number(),
 }).refine(data => {
   return data.endDate >= data.startDate;
 }, {
