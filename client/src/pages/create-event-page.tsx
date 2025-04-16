@@ -41,8 +41,15 @@ import Footer from "@/components/footer";
 
 // Extended schema with validations
 const createEventSchema = insertEventSchema.extend({
-  startDate: z.coerce.date(),
-  endDate: z.coerce.date(),
+  // Ensure dates are properly parsed and validated
+  startDate: z.date({
+    required_error: "Start date is required",
+    invalid_type_error: "Start date must be a valid date",
+  }),
+  endDate: z.date({
+    required_error: "End date is required",
+    invalid_type_error: "End date must be a valid date",
+  }),
 }).refine(data => {
   return data.endDate >= data.startDate;
 }, {

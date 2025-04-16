@@ -22,11 +22,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const { category, search, date, organizerId } = req.query;
       const filters: any = {};
       
-      if (category) filters.category = category.toString();
+      // Don't filter by "all" category, allow filtering by specific categories only
+      if (category && category.toString() !== "all") {
+        filters.category = category.toString();
+      }
+      
       if (search) filters.search = search.toString();
-      if (date) filters.date = date.toString();
+      if (date && date.toString() !== "all") filters.date = date.toString();
       if (organizerId) filters.organizerId = parseInt(organizerId.toString());
       
+      console.log("Event filters:", filters); // Debug log
       const events = await storage.getEvents(filters);
       res.json(events);
     } catch (error) {
