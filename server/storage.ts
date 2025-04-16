@@ -63,14 +63,10 @@ export class MemStorage implements IStorage {
       checkPeriod: 86400000 // 1 day
     });
 
-    // Hash the passwords before storing
-    const adminPassword = "5d2e2d1f903e45d2e99e27ef01064cdb70cdcf4ff9df4b278fceac038f3d2ceb5c7b9aa3157f06e788247394194be87fa5eb6396e82bfd143e57498d7b0f01e.f0ce7e9ef9320e3c87d9ad82ba5b0bfe";
-    const organizerPassword = "5d2e2d1f903e45d2e99e27ef01064cdb70cdcf4ff9df4b278fceac038f3d2ceb5c7b9aa3157f06e788247394194be87fa5eb6396e82bfd143e57498d7b0f01e.f0ce7e9ef9320e3c87d9ad82ba5b0bfe";
-    
-    // Add an admin user by default
+    // Add an admin user by default (using plain password for development)
     this.createUser({
       username: "admin",
-      password: adminPassword, // pre-hashed "password123"
+      password: "password123", // Plain password for development
       firstName: "Admin",
       lastName: "User",
       email: "admin@eventhub.com",
@@ -80,7 +76,7 @@ export class MemStorage implements IStorage {
     // Add an organizer user
     this.createUser({
       username: "organizer",
-      password: organizerPassword, // pre-hashed "password123"
+      password: "password123", // Plain password for development
       firstName: "Event",
       lastName: "Organizer",
       email: "organizer@eventhub.com",
