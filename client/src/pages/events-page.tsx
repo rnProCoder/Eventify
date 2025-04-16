@@ -46,8 +46,25 @@ export default function EventsPage() {
   console.log("Query params:", queryParams);
   
   // Fetch events with filters
+  // Create a URL with query params for the API call
+  const createUrl = () => {
+    const url = new URL("/api/events", window.location.origin);
+    if (category && category !== "all") url.searchParams.set("category", category);
+    if (searchTerm) url.searchParams.set("search", searchTerm);
+    if (date && date !== "all") url.searchParams.set("date", date);
+    return url.toString();
+  };
+  
   const { data: events, isLoading, refetch } = useQuery<Event[]>({
     queryKey: ["/api/events", queryParams],
+    queryFn: async () => {
+      console.log("Fetching events with URL:", createUrl());
+      const response = await fetch(createUrl());
+      if (!response.ok) {
+        throw new Error("Failed to fetch events");
+      }
+      return response.json();
+    }
   });
 
   // Sort events
@@ -128,7 +145,23 @@ export default function EventsPage() {
               
               <div>
                 <Label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">Category</Label>
-                <Select value={category} onValueChange={setCategory}>
+                <Select 
+                  value={category} 
+                  onValueChange={(value) => {
+                    console.log("Selected category:", value);
+                    setCategory(value);
+                    // Immediately update the URL and refetch when category changes
+                    const params = new URLSearchParams(window.location.search);
+                    if (value && value !== "all") {
+                      params.set("category", value);
+                    } else {
+                      params.delete("category");
+                    }
+                    window.history.pushState({}, "", `/events?${params.toString()}`);
+                    // Trigger refetch after state update
+                    setTimeout(() => refetch(), 0);
+                  }}
+                >
                   <SelectTrigger id="category" className="w-full py-6 bg-gray-50">
                     <SelectValue placeholder="All Categories" />
                   </SelectTrigger>

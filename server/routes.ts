@@ -22,8 +22,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const { category, search, date, organizerId } = req.query;
       const filters: any = {};
       
+      console.log("Raw event query params:", req.query);
+      
       // Don't filter by "all" category, allow filtering by specific categories only
       if (category && category.toString() !== "all") {
+        console.log("Setting category filter to:", category.toString());
         filters.category = category.toString();
       }
       
@@ -31,10 +34,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (date && date.toString() !== "all") filters.date = date.toString();
       if (organizerId) filters.organizerId = parseInt(organizerId.toString());
       
-      console.log("Event filters:", filters); // Debug log
+      console.log("Processed event filters:", filters);
+      
       const events = await storage.getEvents(filters);
+      
+      if (filters.category) {
+        console.log(`Found ${events.length} events with category '${filters.category}'`);
+        console.log("Event categories in result:", events.map(e => e.category));
+      }
+      
       res.json(events);
     } catch (error) {
+      console.error("Error processing events:", error);
       next(error);
     }
   });

@@ -250,7 +250,20 @@ export class MemStorage implements IStorage {
 
     if (filters) {
       if (filters.category) {
-        events = events.filter(event => event.category === filters.category);
+        console.log("Filtering by category:", filters.category);
+        console.log("Available categories before filter:", 
+          Array.from(new Set(events.map(e => e.category))));
+          
+        events = events.filter(event => {
+          const match = event.category === filters.category;
+          if (!match) {
+            console.log(`Event ${event.id} with category '${event.category}' doesn't match filter '${filters.category}'`);
+          }
+          return match;
+        });
+        
+        console.log("Events after category filter:", 
+          events.map(e => ({ id: e.id, title: e.title, category: e.category })));
       }
 
       if (filters.search) {
