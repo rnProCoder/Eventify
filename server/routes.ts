@@ -301,7 +301,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Generate context for the AI
       let context = "You are an AI assistant for EventHub, an event management platform for hackathons, workshops, seminars, and conferences. ";
       context += "You help users with information about events, registration process, creating events, and general queries about the platform. ";
-      context += "Keep your responses concise, helpful, and related to event management.";
+      context += "Keep your responses concise, helpful, and related to event management.\n\n";
+      
+      // Get all events and include them in the context
+      const allEvents = await storage.getEvents();
+      
+      // Provide information about current events
+      context += "Here are the current events on the platform:\n";
+      allEvents.forEach((event, index) => {
+        const dateInfo = event.startDate === event.endDate 
+          ? new Date(event.startDate).toLocaleDateString() 
+          : `${new Date(event.startDate).toLocaleDateString()} - ${new Date(event.endDate).toLocaleDateString()}`;
+        
+        context += `${index + 1}. ${event.title} - A ${event.category} in ${event.location} (${dateInfo})\n`;
+        context += `   Description: ${event.description.substring(0, 100)}...\n`;
+      });
       
       // Store the chat message
       let chatData = {
