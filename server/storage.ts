@@ -115,7 +115,7 @@ export class MemStorage implements IStorage {
       location: "Chicago, IL",
       startDate: new Date("2023-09-05"),
       endDate: new Date("2023-09-05"),
-      imageUrl: "https://images.unsplash.com/photo-1475721027785-f74ec9c2d4cb",
+      imageUrl: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678",
       organizerId: 1,
       capacity: 180
     });

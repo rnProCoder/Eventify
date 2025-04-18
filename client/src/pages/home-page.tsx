@@ -48,7 +48,7 @@ export default function HomePage() {
             </div>
             <div className="md:w-1/2">
               <img 
-                src="https://images.unsplash.com/photo-1540317580384-e5d43867caa6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
+                src="https://i.pinimg.com/736x/c9/88/0a/c9880a8abf25f389be7154e8fee18270.jpg" 
                 alt="Events conference" 
                 className="rounded-lg shadow-xl h-auto max-w-full object-cover"
                 style={{ minHeight: "350px", objectFit: "cover" }}
