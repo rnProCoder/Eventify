@@ -13,7 +13,10 @@ export class MongoStorage implements IStorage {
   sessionStore: session.SessionStore;
 
   constructor() {
-    const uri = process.env.MONGODB_URI || 'mongodb://0.0.0.0:27017/eventhub';
+    const uri = process.env.MONGODB_URI;
+    if (!uri) {
+      throw new Error('MONGODB_URI environment variable is required');
+    }
     this.client = new MongoClient(uri);
     this.sessionStore = new MemoryStore({
       checkPeriod: 86400000
