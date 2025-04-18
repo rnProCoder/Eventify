@@ -1,5 +1,6 @@
 import { MongoClient, ObjectId } from 'mongodb';
 import type { IStorage } from './storage';
+import 'dotenv/config';
 import type { User, Event, EventRegistration, ChatMessage, InsertUser, InsertEvent, InsertEventRegistration, InsertChatMessage } from '@shared/schema';
 import session from 'express-session';
 import createMemoryStore from 'memorystore';
