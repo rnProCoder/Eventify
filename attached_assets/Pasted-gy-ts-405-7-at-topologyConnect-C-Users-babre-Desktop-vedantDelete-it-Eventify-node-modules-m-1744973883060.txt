@@ -1,0 +1,533 @@
+gy.ts:405:7)
+    at topologyConnect (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\mongodb\src\mongo_client.ts:620:9)
+    at MongoClient._connect (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\mongodb\src\mongo_client.ts:632:7)
+    at MongoClient.connect (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\mongodb\src\mongo_client.ts:544:7)
+    at MongoStorage.connect (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\mongo-storage.ts:26:7) { 
+  errorLabelSet: Set(0) {},
+  reason: TopologyDescription {
+    type: 'Unknown',
+    servers: Map(1) { '0.0.0.0:27017' => [ServerDescription] },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: null,
+    maxElectionId: null,
+    maxSetVersion: null,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  },
+  code: undefined,
+  [cause]: MongoNetworkError: connect ECONNREFUSED 0.0.0.0:27017
+      at Socket.<anonymous> (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\mongodb\src\cmap\connect.ts:394:16)
+      at Object.onceWrapper (node:events:633:26)
+      at Socket.emit (node:events:518:28)
+      at emitErrorNT (node:internal/streams/destroy:169:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+    errorLabelSet: Set(1) { 'ResetPool' },
+    beforeHandshake: false,
+    [cause]: Error: connect ECONNREFUSED 0.0.0.0:27017
+        at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1605:16) {
+      errno: -4078,
+      code: 'ECONNREFUSED',
+      syscall: 'connect',
+      address: '0.0.0.0',
+      port: 27017
+    }
+  }
+}
+Terminate batch job (Y/N)? y
+PS C:\Users\babre\Desktop\vedantDelete it\Eventify> npm run dev
+
+> rest-express@1.0.0 dev
+> cross-env NODE_ENV=development tsx server/index.ts
+
+4:23:52 PM [express] serving on port 5000
+Browserslist: browsers data (caniuse-lite) is 6 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+4:24:11 PM [express] GET /api/user 401 in 4ms :: {"message":"Not authenticated"}
+Raw event query params: {}
+Processed event filters: {}
+Error processing events: TypeError: Cannot read properties of undefined (reading 'collection')
+    at MongoStorage.getEvents (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\mongo-storage.ts:92:26)
+    at <anonymous> (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\routes.ts:39:36)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:284:15       
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at strategy.pass (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:355:9)
+    at SessionStrategy.authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\strategies\session.js:126:10)
+    at attempt (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:378:16)
+    at authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:379:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at initialize (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\initialize.js:98:5)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at session (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express-session\index.js:487:7) 
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at <anonymous> (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\index.ts:36:3)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at urlencodedParser (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\body-parser\lib\types\urlencoded.js:94:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\body-parser\lib\types\json.js:113:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at expressInit (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\middleware\init.js:40:5)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+4:24:11 PM [express] GET /api/events 500 in 20ms :: {"message":"Cannot read properties of undefined …
+TypeError: Cannot read properties of undefined (reading 'collection')
+    at MongoStorage.getEvents (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\mongo-storage.ts:92:26)
+    at <anonymous> (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\routes.ts:39:36)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:284:15       
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at strategy.pass (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:355:9)
+    at SessionStrategy.authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\strategies\session.js:126:10)
+    at attempt (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:378:16)
+    at authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:379:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at initialize (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\initialize.js:98:5)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at session (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express-session\index.js:487:7) 
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at <anonymous> (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\index.ts:36:3)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at urlencodedParser (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\body-parser\lib\types\urlencoded.js:94:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\body-parser\lib\types\json.js:113:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at expressInit (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\middleware\init.js:40:5)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+MongoDB connection error: MongoServerSelectionError: connect ECONNREFUSED 0.0.0.0:27017
+    at Topology.selectServer (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\mongodb\src\sdam\topology.ts:628:30)
+    at Topology._connect (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\mongodb\src\sdam\topology.ts:468:22)
+    at Topology.connect (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\mongodb\src\sdam\topology.ts:405:7)
+    at topologyConnect (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\mongodb\src\mongo_client.ts:620:9)
+    at MongoClient._connect (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\mongodb\src\mongo_client.ts:632:7)
+    at MongoClient.connect (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\mongodb\src\mongo_client.ts:544:7)
+    at MongoStorage.connect (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\mongo-storage.ts:26:7) { 
+  errorLabelSet: Set(0) {},
+  reason: TopologyDescription {
+    type: 'Unknown',
+    servers: Map(1) { '0.0.0.0:27017' => [ServerDescription] },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: null,
+    maxElectionId: null,
+    maxSetVersion: null,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  },
+  code: undefined,
+  [cause]: MongoNetworkError: connect ECONNREFUSED 0.0.0.0:27017
+      at Socket.<anonymous> (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\mongodb\src\cmap\connect.ts:394:16)
+      at Object.onceWrapper (node:events:633:26)
+      at Socket.emit (node:events:518:28)
+      at emitErrorNT (node:internal/streams/destroy:169:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+    errorLabelSet: Set(1) { 'ResetPool' },
+    beforeHandshake: false,
+    [cause]: Error: connect ECONNREFUSED 0.0.0.0:27017
+        at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1605:16) {
+      errno: -4078,
+      code: 'ECONNREFUSED',
+      syscall: 'connect',
+      address: '0.0.0.0',
+      port: 27017
+    }
+  }
+}
+4:24:49 PM [express] POST /api/register 500 in 9ms :: {"message":"Cannot read properties of undefine…
+TypeError: Cannot read properties of undefined (reading 'collection')
+    at MongoStorage.getUserByUsername (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\mongo-storage.ts:41:32)
+    at <anonymous> (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\auth.ts:91:46)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:284:15       
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at strategy.pass (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:355:9)
+    at SessionStrategy.authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\strategies\session.js:126:10)
+    at attempt (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:378:16)
+    at authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:379:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at initialize (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\initialize.js:98:5)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at session (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express-session\index.js:487:7) 
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at <anonymous> (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\index.ts:36:3)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at urlencodedParser (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\body-parser\lib\types\urlencoded.js:85:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\body-parser\lib\read.js:137:5
+    at AsyncResource.runInAsyncScope (node:async_hooks:206:9)
+    at invokeCallback (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\raw-body\index.js:238:16)
+    at done (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\raw-body\index.js:227:7)
+    at IncomingMessage.onEnd (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\raw-body\index.js:287:7)
+    at IncomingMessage.emit (node:events:518:28)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+4:25:04 PM [express] POST /api/login 500 in 19ms :: {"message":"Cannot read properties of undefined …
+TypeError: Cannot read properties of undefined (reading 'collection')
+    at MongoStorage.getUserByUsername (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\mongo-storage.ts:41:32)
+    at Strategy._verify (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\auth.ts:64:36)
+    at Strategy.authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport-local\lib\strategy.js:90:12)
+    at attempt (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:378:16)
+    at authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:379:7)
+    at <anonymous> (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\auth.ts:142:8)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:284:15       
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at strategy.pass (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:355:9)
+    at SessionStrategy.authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\strategies\session.js:126:10)
+    at attempt (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:378:16)
+    at authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:379:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at initialize (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\initialize.js:98:5)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at session (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express-session\index.js:487:7) 
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at <anonymous> (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\index.ts:36:3)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at urlencodedParser (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\body-parser\lib\types\urlencoded.js:85:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\body-parser\lib\read.js:137:5
+    at AsyncResource.runInAsyncScope (node:async_hooks:206:9)
+    at invokeCallback (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\raw-body\index.js:238:16)
+    at done (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\raw-body\index.js:227:7)
+4:25:06 PM [express] POST /api/login 500 in 2ms :: {"message":"Cannot read properties of undefined (…
+TypeError: Cannot read properties of undefined (reading 'collection')
+    at MongoStorage.getUserByUsername (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\mongo-storage.ts:41:32)
+    at Strategy._verify (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\auth.ts:64:36)
+    at Strategy.authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport-local\lib\strategy.js:90:12)
+    at attempt (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:378:16)
+    at authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:379:7)
+    at <anonymous> (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\auth.ts:142:8)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:284:15       
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at strategy.pass (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:355:9)
+    at SessionStrategy.authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\strategies\session.js:126:10)
+    at attempt (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:378:16)
+    at authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:379:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at initialize (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\initialize.js:98:5)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at session (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express-session\index.js:487:7) 
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at <anonymous> (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\index.ts:36:3)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at urlencodedParser (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\body-parser\lib\types\urlencoded.js:85:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\body-parser\lib\read.js:137:5
+    at AsyncResource.runInAsyncScope (node:async_hooks:206:9)
+    at invokeCallback (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\raw-body\index.js:238:16)
+    at done (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\raw-body\index.js:227:7)
+Raw event query params: {}
+Processed event filters: {}
+Error processing events: TypeError: Cannot read properties of undefined (reading 'collection')
+    at MongoStorage.getEvents (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\mongo-storage.ts:92:26)
+    at <anonymous> (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\routes.ts:39:36)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:284:15       
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at strategy.pass (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:355:9)
+    at SessionStrategy.authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\strategies\session.js:126:10)
+    at attempt (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:378:16)
+    at authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:379:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at initialize (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\initialize.js:98:5)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at session (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express-session\index.js:487:7) 
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at <anonymous> (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\index.ts:36:3)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at urlencodedParser (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\body-parser\lib\types\urlencoded.js:94:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\body-parser\lib\types\json.js:113:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at expressInit (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\middleware\init.js:40:5)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+4:25:09 PM [express] GET /api/events 500 in 7ms :: {"message":"Cannot read properties of undefined (…        
+TypeError: Cannot read properties of undefined (reading 'collection')
+    at MongoStorage.getEvents (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\mongo-storage.ts:92:26)
+    at <anonymous> (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\routes.ts:39:36)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:284:15       
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at strategy.pass (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:355:9)
+    at SessionStrategy.authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\strategies\session.js:126:10)
+    at attempt (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:378:16)
+    at authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:379:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at initialize (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\initialize.js:98:5)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at session (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express-session\index.js:487:7) 
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at <anonymous> (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\index.ts:36:3)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at urlencodedParser (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\body-parser\lib\types\urlencoded.js:94:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\body-parser\lib\types\json.js:113:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at expressInit (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\middleware\init.js:40:5)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+Raw event query params: {}
+Processed event filters: {}
+Error processing events: TypeError: Cannot read properties of undefined (reading 'collection')
+    at MongoStorage.getEvents (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\mongo-storage.ts:92:26)
+    at <anonymous> (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\routes.ts:39:36)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:284:15       
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at strategy.pass (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:355:9)
+    at SessionStrategy.authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\strategies\session.js:126:10)
+    at attempt (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:378:16)
+    at authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:379:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at initialize (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\initialize.js:98:5)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at session (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express-session\index.js:487:7) 
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at <anonymous> (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\index.ts:36:3)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at urlencodedParser (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\body-parser\lib\types\urlencoded.js:94:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\body-parser\lib\types\json.js:113:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at expressInit (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\middleware\init.js:40:5)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+4:25:09 PM [express] GET /api/events 500 in 20ms :: {"message":"Cannot read properties of undefined …
+TypeError: Cannot read properties of undefined (reading 'collection')
+    at MongoStorage.getEvents (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\mongo-storage.ts:92:26)
+    at <anonymous> (C:\Users\babre\Desktop\vedantDelete it\Eventify\server\routes.ts:39:36)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:284:15       
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at strategy.pass (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:355:9)
+    at SessionStrategy.authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\strategies\session.js:126:10)
+    at attempt (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:378:16)
+    at authenticate (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\authenticate.js:379:7)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:286:9        
+    at Function.process_params (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express\lib\router\index.js:280:10)
+    at initialize (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\passport\lib\middleware\initialize.js:98:5)
+    at Layer.handle [as handle_request] (C:\Users\babre\Desktop\vedantDelete it\Eventify\node_modules\express
