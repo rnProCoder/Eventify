@@ -1,4 +1,3 @@
-
 import { MongoClient, ObjectId } from 'mongodb';
 import type { IStorage } from './storage';
 import type { User, Event, EventRegistration, ChatMessage, InsertUser, InsertEvent, InsertEventRegistration, InsertChatMessage } from '@shared/schema';
@@ -13,11 +12,10 @@ export class MongoStorage implements IStorage {
   sessionStore: session.SessionStore;
 
   constructor() {
-    const uri = process.env.MONGODB_URI;
-    if (!uri) {
+    if (!process.env.MONGODB_URI) {
       throw new Error('MONGODB_URI environment variable is required');
     }
-    this.client = new MongoClient(uri);
+    this.client = new MongoClient(process.env.MONGODB_URI);
     this.sessionStore = new MemoryStore({
       checkPeriod: 86400000
     });
@@ -78,7 +76,7 @@ export class MongoStorage implements IStorage {
     organizerId?: number;
   }): Promise<Event[]> {
     const query: any = {};
-    
+
     if (filters) {
       if (filters.category) query.category = filters.category;
       if (filters.organizerId) query.organizerId = filters.organizerId;
@@ -91,7 +89,7 @@ export class MongoStorage implements IStorage {
       }
       // Date filtering logic can be implemented here
     }
-    
+
     return await this.db.collection('events').find(query).toArray();
   }
 
